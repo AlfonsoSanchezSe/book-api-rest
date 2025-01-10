@@ -10,7 +10,7 @@ class BookRepository
     
     public function getAllBooks(){
 
-        return Book::where('status', BookStatus::ONSALE)->get();
+        return Book::all();
     }
 
     public function getBookByID($id){
