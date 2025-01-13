@@ -24,4 +24,5 @@ Route::post('/book/create',[BookController::class, "createBook"]);
 Route::get('/stock/{bookId}',[BookController::class, "getStockByBookID"]);
 Route::delete('/delete/{id}',[BookController::class, "deleteBook"]);
 Route::patch('/updateStock',[BookController::class, "updateStock"]);
+Route::patch('/updateBook',[BookController::class, "updateBook"]);
 });

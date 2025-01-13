@@ -45,7 +45,7 @@ public function getBookByID($id){
 
 }
 
-    public function crateBook($data){
+    public function createBook($data){
 
         return $this->bookRepository->createBook($data);
 
@@ -89,6 +89,10 @@ public function getBookByID($id){
         return $this->stockRepository->updateStock($request);
         
 
+    }
+
+    public function updateBook($data){
+        return $this->bookRepository->updateBook($data);
     }
 
 

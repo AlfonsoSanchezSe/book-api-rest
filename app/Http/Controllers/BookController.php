@@ -47,7 +47,7 @@ class BookController extends Controller
 
     public function createBook(BookRequest $request){
 
-        $book = $this->bookService->crateBook($request->all());
+        $book = $this->bookService->createBook($request->all());
 
         return ApiResponse::success($book, "Book created",201);
     }
@@ -71,7 +71,14 @@ class BookController extends Controller
     public function updateStock(StockRequest $request){
         $stock = $this->bookService->updateStock($request);
 
-        return ApiResponse::success($stock, "Book updated", 200);
+        return ApiResponse::success($stock, "Stock updated", 200);
     }
 
+
+    public function updateBook(BookRequest $request){
+
+        $book = $this->bookService->updateBook($request->all());
+
+        return ApiResponse::success($book, "Book updated", 200);
+    }
 }

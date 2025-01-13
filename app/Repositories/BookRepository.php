@@ -29,4 +29,11 @@ class BookRepository
     }
 
 
+    public function updateBook($data){
+        Book::find($data["id"])->update(["isbn" => $data["isbn"], "gen" => $data["gen"], "status" => $data["status"], "price" => $data["price"], "published" => $data["published"]]);
+        return $this->getBookByID($data["id"]);
+    
+    }
+
+
 }
