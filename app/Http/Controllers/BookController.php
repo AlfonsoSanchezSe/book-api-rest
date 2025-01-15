@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Helpers\ApiResponse;
 use App\Http\Requests\BookRequest;
 use App\Http\Requests\StockRequest;
+use App\Mail\BienvenidaMail;
 use App\Services\BookService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Resend;
 
 class BookController extends Controller
 {
@@ -81,4 +84,16 @@ class BookController extends Controller
 
         return ApiResponse::success($book, "Book updated", 200);
     }
+
+    public function sendEmail(Request $request){
+
+        $mail = "1902897@alu.murciaeduca.es";
+        
+        Mail::to($mail)->send(new BienvenidaMail($request->user));
+
+        return ApiResponse::success("","Mail Sended", 200);
+
+
+    }
+
 }

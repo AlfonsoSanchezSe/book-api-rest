@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/register', [JWTAuthController::class, 'register']);
 Route::post('login', [JWTAuthController::class, 'login']);
+Route::post('/sendMail',[BookController::class, "sendEmail"]);
 
 Route::middleware([JwtMiddleware::class])->group(function () {
     Route::get('user', [JWTAuthController::class, 'getUser']);
@@ -25,4 +26,5 @@ Route::get('/stock/{bookId}',[BookController::class, "getStockByBookID"]);
 Route::delete('/delete/{id}',[BookController::class, "deleteBook"]);
 Route::patch('/updateStock',[BookController::class, "updateStock"]);
 Route::patch('/updateBook',[BookController::class, "updateBook"]);
+
 });
